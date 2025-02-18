@@ -64,7 +64,6 @@ public class ShapeFactory {
       case 8:
          this.paint = Color.red;
       }
-
    }
 
    private static Shape createStar(int arms, Point center, double rOuter, double rInner) {
