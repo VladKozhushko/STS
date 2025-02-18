@@ -16,12 +16,14 @@ public class TitlesPanel extends JPanel implements ActionListener {
    private int start_angle = 0;
    private int shape;
 
+   //Constructor that generates user interface
    public TitlesPanel(int _shape) {
       this.shape = _shape;
       (this.animation = new Timer(50, this)).setInitialDelay(50);
       this.animation.start();
    }
 
+   //Method that catches all changes
    public void actionPerformed(ActionEvent arg0) {
       if (this.is_done) {
          this.repaint();
@@ -29,6 +31,7 @@ public class TitlesPanel extends JPanel implements ActionListener {
 
    }
 
+   //Method that draw various geometric shapes
    private void doDrawing(Graphics g) {
       this.is_done = false;
       (this.g2d = (Graphics2D)g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -59,6 +62,7 @@ public class TitlesPanel extends JPanel implements ActionListener {
       this.is_done = true;
    }
 
+   //Method starts drawing
    public void paintComponent(Graphics g) {
       super.paintComponent(g);
       this.doDrawing(g);
