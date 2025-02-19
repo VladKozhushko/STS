@@ -6,16 +6,45 @@ import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
-import javax.swing.JPanel;
-import javax.swing.Timer;
+import javax.swing.*;
 
+/**
+ * The {@code TitlesPanel} class generates user interface graphical panel.
+ * It extends {@link JPanel} and implements {@link ActionListener}.
+ *
+ *<p>It draws a {@code ShapeFactory}.</p>
+ *
+ * @author VladKozhushko
+ *
+ * @version 1.0
+ */
 public class TitlesPanel extends JPanel implements ActionListener {
+   /**
+    * Main UI panel graphics.
+    */
    private Graphics2D g2d;
+   /**
+    * Timer which start redrawing process.
+    */
    private Timer animation;
+   /**
+    * Redraw indicator.
+    */
    private boolean is_done = true;
+   /**
+    * Rotation angle of shape.
+    */
    private int start_angle = 0;
+   /**
+    * Contains shape form and color
+    */
    private int shape;
 
+   /**
+    * Constructs {@code TitlesPanel} generate user interface.
+    *
+    * @param _shape argument which defines the type for generation shapes.
+    */
    //Constructor that generates user interface
    public TitlesPanel(int _shape) {
       this.shape = _shape;
@@ -23,6 +52,10 @@ public class TitlesPanel extends JPanel implements ActionListener {
       this.animation.start();
    }
 
+   /**
+    * Method that catches all changes.
+    * @param arg0 (not use).
+    */
    //Method that catches all changes
    public void actionPerformed(ActionEvent arg0) {
       if (this.is_done) {
@@ -31,6 +64,10 @@ public class TitlesPanel extends JPanel implements ActionListener {
 
    }
 
+   /**
+    * Main drawing method which draw draw various geometric shapes.
+    * @param g UI panel graphic.
+    */
    //Method that draw various geometric shapes
    private void doDrawing(Graphics g) {
       this.is_done = false;
@@ -62,6 +99,10 @@ public class TitlesPanel extends JPanel implements ActionListener {
       this.is_done = true;
    }
 
+   /**
+    * Method which starts drawing process.
+    * @param g graphic which transmitted to {@code doDrawing} method.
+    */
    //Method starts drawing
    public void paintComponent(Graphics g) {
       super.paintComponent(g);
