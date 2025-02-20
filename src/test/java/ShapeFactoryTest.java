@@ -2,10 +2,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.awt.*;
 
-public class ShapeFactoryTest {
+class ShapeFactoryTest {
     @Test
-    public void testShowColor(){
-        ShapeFactory factory = new ShapeFactory(38);
-        Assertions.assertEquals(Color.red, factory.paint, "Show color must be red");
+    void testShowColor(){
+        ShapeFactory factory = new ShapeFactory(3,8);
+        Assertions.assertEquals(Color.red, factory.getPaint(), "Show color must be red");
     }
 }

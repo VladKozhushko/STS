@@ -1,6 +1,4 @@
-import java.awt.Component;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 /**
  * The {@code TitlesFrame} class initialize user interface and contain a graphical panel.
@@ -28,10 +26,10 @@ public class TitlesFrame extends JFrame {
    //Method for initialize the user interface
    private void initUI() {
       this.setTitle("Криві фігури");
-      this.setDefaultCloseOperation(3);
-      this.add(new TitlesPanel(37));
+      this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+      this.add(new TitlesPanel(3,7));
       this.setSize(350, 350);
-      this.setLocationRelativeTo((Component)null);
+      this.setLocationRelativeTo(null);
    }
 
    /**
@@ -41,11 +39,9 @@ public class TitlesFrame extends JFrame {
     */
    //Main method that starts the program
    public static void main(String[] args) {
-      SwingUtilities.invokeLater(new Runnable() {
-         public void run() {
-            TitlesFrame ps = new TitlesFrame();
-            ps.setVisible(true);
-         }
+      SwingUtilities.invokeLater(() -> {
+         TitlesFrame ps = new TitlesFrame();
+         ps.setVisible(true);
       });
    }
 }
